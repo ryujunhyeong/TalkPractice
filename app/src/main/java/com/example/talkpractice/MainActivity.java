@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                         String stUserName=user.getDisplayName();
                         Log.d(TAG,"stUserEmail: "+stUserEmail+"stUesrName"+stUserName);
                         Intent in=new Intent(MainActivity.this,ChatActivity.class);
+                        in.putExtra("email",stEmail);
                         startActivity(in);
                         // updateUI(user);
                     } else {

@@ -14,19 +14,25 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class ChatActivity extends AppCompatActivity {
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Hashtable;
 
+public class ChatActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     MyAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     Button btnSend;
     EditText etText;
+    FirebaseDatabase database;
+    String stEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
+        stEmail=getIntent().getStringExtra("email");
         Button btnFinish = (Button)findViewById(R.id.btnFinish);
         btnSend=(Button)findViewById(R.id.btnSend);
         etText=(EditText)findViewById(R.id.etText);
@@ -51,9 +57,15 @@ public class ChatActivity extends AppCompatActivity {
             String stText=etText.getText().toString();
             Toast.makeText(ChatActivity.this,"MSG : "+stText,Toast.LENGTH_LONG).show();
             FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference myRef = database.getReference("message");
-
-            myRef.setValue("Hello, World!");
+            Calendar c= Calendar.getInstance();
+            SimpleDateFormat dateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            String datetime = dateformat.format(c.getTime());
+            DatabaseReference myRef = database.getReference("message").child(datetime);
+            Hashtable<String,String> numbers
+                    =new Hashtable<String,String>();
+            numbers.put("email",stEmail);
+            numbers.put("text",stText);
+            myRef.setValue(numbers);
         });
     }
 }
