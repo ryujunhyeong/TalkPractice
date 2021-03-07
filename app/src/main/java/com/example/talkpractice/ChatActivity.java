@@ -50,10 +50,10 @@ public class ChatActivity extends AppCompatActivity {
         btnSend.setOnClickListener((v)-> {
             String stText=etText.getText().toString();
             Toast.makeText(ChatActivity.this,"MSG : "+stText,Toast.LENGTH_LONG).show();
-           // FirebaseDatabase database = FirebaseDatabase.getInstance();
-            //DatabaseReference myRef = database.getReference("message");
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference("message");
 
-            //myRef.setValue("Hello, World!");
+            myRef.setValue("Hello, World!");
         });
     }
 }
