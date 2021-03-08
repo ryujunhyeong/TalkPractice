@@ -58,7 +58,7 @@ public class ChatActivity extends AppCompatActivity {
         layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        String[] myDataset={"test1","test2","test3","test4"};
+       // String[] myDataset={"test1","test2","test3","test4"};
         mAdapter=new MyAdapter(chatArrayList,stEmail);
         recyclerView.setAdapter(mAdapter);
 
