@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         etId=(EditText)findViewById(R.id.etId);
         etPassword =(EditText)findViewById(R.id.etPassword);
         progressBar =(ProgressBar)findViewById(R.id.progressBar);
-       // String stPassword=etPassword.getText().toString();//////////////////// minsu
+       // String stPassword=etPassword.getText().toString();//////////////////// minsu12314514142
 
         Button btnLogin=(Button)findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener((v)->{
