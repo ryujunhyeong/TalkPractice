@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TalkPractice">
         <activity android:name=".ChatActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

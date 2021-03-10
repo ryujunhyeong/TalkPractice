@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -35,9 +36,12 @@ public class ChatActivity extends AppCompatActivity {
     String stEmail;
     ArrayList<Chat> chatArrayList;
     private static final String TAG = "ChatActivity";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         chatArrayList=new ArrayList<>();
         setContentView(R.layout.activity_chat);
         database = FirebaseDatabase.getInstance();
