@@ -1,17 +1,16 @@
 package com.example.talkpractice;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,7 +20,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-
     EditText etId, etPassword;
     ProgressBar progressBar;
     private FirebaseAuth mAuth;
@@ -33,8 +31,7 @@ public class MainActivity extends AppCompatActivity {
         etId=(EditText)findViewById(R.id.etId);
         etPassword =(EditText)findViewById(R.id.etPassword);
         progressBar =(ProgressBar)findViewById(R.id.progressBar);
-       // String stPassword=etPassword.getText().toString();//////////////////// minsu12314514142
-
+       // String stPassword=etPassword.getText().toString();
         Button btnLogin=(Button)findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener((v)->{
             String stEmail=etId.getText().toString();
@@ -59,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         FirebaseUser user = mAuth.getCurrentUser();
                         String stUserEmail=user.getEmail();
                         String stUserName=user.getDisplayName();
-                        Log.d(TAG,"stUserEmail: "+stUserEmail+"stUesrName"+stUserName);
+                        Log.d(TAG,"stUserEmail: "+stUserEmail+"stUserName"+stUserName);
                         Intent in=new Intent(MainActivity.this,ChatActivity.class);
                         in.putExtra("email",stEmail);
                         startActivity(in);
@@ -116,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         });
 
+                //
             }
         });
 

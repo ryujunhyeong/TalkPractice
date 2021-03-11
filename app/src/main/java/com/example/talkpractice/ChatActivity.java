@@ -1,10 +1,6 @@
 package com.example.talkpractice;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,13 +9,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import org.w3c.dom.Comment;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -36,7 +34,7 @@ public class ChatActivity extends AppCompatActivity {
     String stEmail;
     ArrayList<Chat> chatArrayList;
     private static final String TAG = "ChatActivity";
-
+    Button btnWeb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +47,7 @@ public class ChatActivity extends AppCompatActivity {
         Button btnFinish = (Button)findViewById(R.id.btnFinish);
         btnSend=(Button)findViewById(R.id.btnSend);
         etText=(EditText)findViewById(R.id.etText);
+        btnWeb = (Button)findViewById(R.id.btnWeb);
         btnFinish.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -139,6 +138,14 @@ public class ChatActivity extends AppCompatActivity {
             numbers.put("email",stEmail);
             numbers.put("text",stText);
             myRef.setValue(numbers);
+        });
+
+        btnWeb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Web_View.class);
+                startActivity(intent);
+            }
         });
     }
 }
