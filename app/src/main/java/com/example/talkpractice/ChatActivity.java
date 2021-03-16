@@ -49,6 +49,14 @@ public class ChatActivity extends AppCompatActivity {
         Button btnFinish = (Button)findViewById(R.id.btnFinish);
         btnSend=(Button)findViewById(R.id.btnSend);
         etText=(EditText)findViewById(R.id.etText);
+        Button btnplus = findViewById(R.id.btnPlus);
+        btnplus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ExampleBottomSheetDialog bottomSheetDialog=new ExampleBottomSheetDialog();
+                bottomSheetDialog.show(getSupportFragmentManager(),"exampleBottomSheet");
+            }
+        });
         btnFinish.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
