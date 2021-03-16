@@ -13,6 +13,8 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.TalkPractice">
         <activity android:name=".Web_View"></activity>
+
+        <activity android:name=".BottomSheet"></activity>
         <activity android:name=".ChatActivity" />
         <activity
             android:name=".MainActivity"

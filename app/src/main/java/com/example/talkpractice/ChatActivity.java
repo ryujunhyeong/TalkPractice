@@ -49,6 +49,14 @@ public class ChatActivity extends AppCompatActivity {
         btnSend=(Button)findViewById(R.id.btnSend);
         etText=(EditText)findViewById(R.id.etText);
         btnWeb = (Button)findViewById(R.id.btnWeb);
+        Button btnplus = findViewById(R.id.btnPlus);
+        btnplus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ExampleBottomSheetDialog bottomSheetDialog=new ExampleBottomSheetDialog();
+                bottomSheetDialog.show(getSupportFragmentManager(),"exampleBottomSheet");
+            }
+        });
         btnFinish.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -60,6 +68,7 @@ public class ChatActivity extends AppCompatActivity {
         recyclerView=(RecyclerView)findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true); // 높이 가변적이지 않도록
         layoutManager=new LinearLayoutManager(this);
+
         recyclerView.setLayoutManager(layoutManager);
 
        // String[] myDataset={"test1","test2","test3","test4"};
@@ -80,6 +89,7 @@ public class ChatActivity extends AppCompatActivity {
                 Log.d(TAG,"stText"+stText);
                 chatArrayList.add(chat);
                 mAdapter.notifyDataSetChanged();
+                recyclerView.scrollToPosition(chatArrayList.size()-1);
                 // ...
             }
 
@@ -138,6 +148,7 @@ public class ChatActivity extends AppCompatActivity {
             numbers.put("email",stEmail);
             numbers.put("text",stText);
             myRef.setValue(numbers);
+            etText.setText("");
         });
 
         btnWeb.setOnClickListener(new View.OnClickListener() {

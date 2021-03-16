@@ -40,12 +40,20 @@
         android:text="Search"
         android:id="@+id/btnWeb"
         />
+  <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="+"
+        android:id="@+id/btnPlus"
+        />
     <EditText
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnWeb"
+        app:layout_constraintStart_toEndOf="@id/btnPlus"
         android:id="@+id/etText"
         />
 
