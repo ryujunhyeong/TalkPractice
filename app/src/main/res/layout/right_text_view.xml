@@ -13,7 +13,13 @@
         android:id="@+id/tvChat"
         android:background="@drawable/chat_bubble"
         android:padding="10dp"
+
         android:layout_marginRight="5dp"
+
+
         android:layout_marginBottom="5dp"
+        android:linksClickable="true"
+        android:autoLink="web"
+
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
