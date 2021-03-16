@@ -1,10 +1,7 @@
 package com.example.talkpractice;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,13 +10,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import org.w3c.dom.Comment;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ public class ChatActivity extends AppCompatActivity {
     String stEmail;
     ArrayList<Chat> chatArrayList;
     private static final String TAG = "ChatActivity";
-
+    Button btnWeb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +48,7 @@ public class ChatActivity extends AppCompatActivity {
         Button btnFinish = (Button)findViewById(R.id.btnFinish);
         btnSend=(Button)findViewById(R.id.btnSend);
         etText=(EditText)findViewById(R.id.etText);
+        btnWeb = (Button)findViewById(R.id.btnWeb);
         Button btnplus = findViewById(R.id.btnPlus);
         btnplus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,7 +139,6 @@ public class ChatActivity extends AppCompatActivity {
             String stText=etText.getText().toString();
             Toast.makeText(ChatActivity.this,"MSG : "+stText,Toast.LENGTH_LONG).show();
 
-
             Calendar c= Calendar.getInstance();
             SimpleDateFormat dateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
             String datetime = dateformat.format(c.getTime());
@@ -150,6 +149,15 @@ public class ChatActivity extends AppCompatActivity {
             numbers.put("text",stText);
             myRef.setValue(numbers);
             etText.setText("");
+        });
+
+        btnWeb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String SearchName = etText.getText().toString();
+                Intent BrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?q="+SearchName));
+                startActivity(BrowserIntent);
+            }
         });
     }
 }
