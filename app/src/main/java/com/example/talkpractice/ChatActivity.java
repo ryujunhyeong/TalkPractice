@@ -1,6 +1,7 @@
 package com.example.talkpractice;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -128,7 +129,6 @@ public class ChatActivity extends AppCompatActivity {
             String stText=etText.getText().toString();
             Toast.makeText(ChatActivity.this,"MSG : "+stText,Toast.LENGTH_LONG).show();
 
-
             Calendar c= Calendar.getInstance();
             SimpleDateFormat dateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
             String datetime = dateformat.format(c.getTime());
@@ -143,8 +143,9 @@ public class ChatActivity extends AppCompatActivity {
         btnWeb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Web_View.class);
-                startActivity(intent);
+                String SearchName = etText.getText().toString();
+                Intent BrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?q="+SearchName));
+                startActivity(BrowserIntent);
             }
         });
     }
