@@ -10,11 +10,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.TalkPractice">
-        <activity android:name=".Web_View"></activity>
-
-        <activity android:name=".BottomSheet"></activity>
+        android:theme="@style/Theme.TalkPractice"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".FriendsListView"></activity>
+        <activity android:name=".Web_View" />
+        <activity android:name=".BottomSheet" />
         <activity android:name=".ChatActivity" />
         <activity
             android:name=".MainActivity"
@@ -23,8 +23,8 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-                <category android:name="android.intentcategory.BROWSABLE"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intentcategory.BROWSABLE" />
             </intent-filter>
         </activity>
     </application>
