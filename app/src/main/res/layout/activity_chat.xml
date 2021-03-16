@@ -31,7 +31,15 @@
         android:text="SEND"
         android:id="@+id/btnSend"
         />
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/btnSend"
+        app:layout_constraintEnd_toEndOf="@id/etText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Search"
+        android:id="@+id/btnWeb"
+        />
     <EditText
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -41,14 +49,6 @@
         android:id="@+id/etText"
         />
 
-    <Button
-        android:id="@+id/btnWeb"
-        android:layout_width="88dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="48dp"
-        android:text="webs"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/btnSend" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
