@@ -42,7 +42,8 @@
         app:iconTint="#7900F1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/etText"
-        app:layout_constraintStart_toStartOf="@id/btnSend" />
+        app:layout_constraintStart_toStartOf="@id/btnSend"
+        android:layout_marginRight="1mm" />
 
   <Button
         android:layout_width="50dp"
